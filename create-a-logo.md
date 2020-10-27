@@ -13,10 +13,7 @@ php <your-app-name> app:install logo
 Just after installation, if you run `php <your-app-name>` your application will contain
 a ASCII logo:
 
-<img
-    src="https://raw.githubusercontent.com/laravel-zero/docs/master/images/logo.png"
-    class="md:w-4/5 md:mx-auto"
->
+<img src="https://raw.githubusercontent.com/laravel-zero/docs/master/images/logo.png" class="md:w-4/5 md:mx-auto">
 
 This command will install dependencies needed and publishes a config file under `config/logo.php`.
 
