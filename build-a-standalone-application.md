@@ -53,6 +53,8 @@ By default, a few strategies are provided in Laravel Zero:
   `LaravelZero\Framework\Components\Updater\Strategy\GitHubStrategy`
 - Download the PHAR file from GitHub releases assets:  
   `LaravelZero\Framework\Components\Updater\Strategy\GitHubReleasesStrategy`
+- Download the PHAR file from the `builds/` directory on GitLab:  
+  `LaravelZero\Framework\Components\Updater\Strategy\GitLabStrategy`
 
 To use a custom strategy, first publish the config using:
 
