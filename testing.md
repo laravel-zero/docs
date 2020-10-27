@@ -5,33 +5,25 @@ description: The `tests` folder
 
 # Testing
 
-The `tests` folder contains your `phpunit` tests. By default, the Laravel Zero
-ships with an *Integration* suite that can be used as follows:
-```php
-use Tests\TestCase;
+The `tests` folder contains your [Pest](https://pestphp.com) or [PHPUnit](https://phpunit.de) tests. By default, Laravel Zero
+ships with an *Integration* suite written with Pest syntax that can be used as follows:
 
-class InspiringCommandTest extends TestCase
-{
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testInspiringCommand()
-    {
-        $this->artisan('inspiring')
-             ->expectsOutput('Simplicity is the ultimate sophistication.')
-             ->assertExitCode(0);
-    }
-}
+```php
+test('inspiring command', function () {
+    $this->artisan('inspiring')
+         ->expectsOutput('Simplicity is the ultimate sophistication.')
+         ->assertExitCode(0);
+});
 ```
 
-As usual, you can always run your tests using the `phpunit` command:
+As usual, you can always run your tests using the `pest` command:
+
 ```bash
-./vendor/bin/phpunit
+./vendor/bin/pest
 ```
 
 ## Asserting that a command was called
+
 Using the `assertCommandCalled` test helper method you can check if a specific method was called.
 This is helpful if you need to check if calling _SomeFirstCommand_ also triggers _AnotherCommand_.
 
@@ -40,25 +32,28 @@ The inverse of this assertion is `assertCommandNotCalled`.
 __Note__ that both assertions are "argument-sensitive".
 
 ```php
-use Tests\TestCase;
+test('migration command', function () {
+    $this->artisan('migrate', ['--seed' => true]);
 
-class InspiringCommandTest extends TestCase
-{
-    /**
-     * An example for using assertCommand(Not)Called.
-     *
-     * @return void
-     */
-    public function testMigrationCommand()
-    {
-        $this->artisan('migrate', ['--seed' => true]);
+    // Assert that a command was called
+    $this->assertCommandCalled('migrate', ['--seed' => true]);
+    $this->assertCommandCalled('db:seed');
 
-        // Assert that a command was called
-        $this->assertCommandCalled('migrate', ['--seed' => true]);
-        $this->assertCommandCalled('db:seed');
+    // Assert that a command was *NOT* called
+    $this->assertCommandNotCalled('migrate', ['--seed' => false]);
+});
+```
 
-        // Assert that a command was *NOT* called
-        $this->assertCommandNotCalled('migrate', ['--seed' => false]);
-    }
-}
+## Using PHPUnit-style tests
+
+Pest has full support for running PHPUnit tests, however if you would rather use PHPUnit directly, you can either run the binary with:
+
+```bash
+./vendor/bin/phpunit
+```
+
+Or uninstall Pest and install PHPUnit via Composer:
+
+```bash
+composer remove pestphp/pest --dev && composer require phpunit/phpunit --dev
 ```
