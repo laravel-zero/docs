@@ -3,7 +3,7 @@
 	- [Installation](/docs/installation)
 - ## Usage
     - [Commands](/docs/commands)
-	- [Service Providers](/docs/installation)
+	- [Service Providers](/docs/service-providers)
 	- [Configuration](/docs/configuration)
 	- [Testing](/docs/testing)
 	- [Exception handler](/docs/exception-handler)
