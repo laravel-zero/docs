@@ -20,9 +20,9 @@ or on Windows:
 C:\application\path> php builds\<your-build-name>
 ```
 
-We use `humbug/box` to provide fast application bundling. In order to configure your build, you should take a look at the file `box.json`.
+We use [`humbug/box`](https://github.com/box-project/box) to provide fast application bundling. In order to configure your build, you should take a look at the file `box.json`.
 
-Please check the box documentation to understand all options: [github.com/humbug/box/blob/master/doc/configuration.md](https://github.com/humbug/box/blob/master/doc/configuration.md).
+Please check the box documentation to understand all options: [github.com/box-project/box/blob/master/doc/configuration.md](https://github.com/box-project/box/blob/master/doc/configuration.md).
 
 ## Non-interactive build
 
@@ -53,6 +53,8 @@ By default, a few strategies are provided in Laravel Zero:
   `LaravelZero\Framework\Components\Updater\Strategy\GitHubStrategy`
 - Download the PHAR file from GitHub releases assets:  
   `LaravelZero\Framework\Components\Updater\Strategy\GitHubReleasesStrategy`
+- Download the PHAR file from the `builds/` directory on GitLab:  
+  `LaravelZero\Framework\Components\Updater\Strategy\GitLabStrategy`
 
 To use a custom strategy, first publish the config using:
 
