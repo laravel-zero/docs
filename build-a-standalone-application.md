@@ -55,6 +55,8 @@ By default, a few strategies are provided in Laravel Zero:
   `LaravelZero\Framework\Components\Updater\Strategy\GitHubReleasesStrategy`
 - Download the PHAR file from the `builds/` directory on GitLab:  
   `LaravelZero\Framework\Components\Updater\Strategy\GitLabStrategy`
+- Download the PHAR file from a custom URL (requires extending the abstract class):  
+  `LaravelZero\Framework\Components\Updater\Strategy\AbstractDirectDownloadStrategy`
 
 To use a custom strategy, first publish the config using:
 
