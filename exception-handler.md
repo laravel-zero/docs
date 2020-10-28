@@ -116,7 +116,7 @@ public function report(Throwable $exception)
 }
 ```
 
-If you would like to disable the reporting only when running from the built phar file you could use the [`\Phar::running()`](http://php.net/manual/en/phar.running.php) function.
+If you would like to disable the reporting only when running from the built phar file you could use the [`\Phar::running()`](https://php.net/manual/en/phar.running.php) function.
 
 ```php
 if (\Phar::running()) {
