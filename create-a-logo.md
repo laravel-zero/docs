@@ -17,6 +17,7 @@ a ASCII logo:
 
 This command will install dependencies needed and publishes a config file under `config/logo.php`.
 
+<a name="using-a-different-font"></a>
 ### Using a different font
 
 Under the hood the `logo` component uses the [`laminas/laminas-text`](https://github.com/laminas/laminas-text) package which renders text using fonts called "figlets".
