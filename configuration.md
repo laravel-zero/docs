@@ -32,6 +32,7 @@ can be configured using `config/commands.php`:
 | hidden  | Adds the provided commands, but make them hidden.
 | remove  | Removes the list of commands provided.
 
+<a name="disabling-default-component-providers"></a>
 ### Disabling default component providers
 
 The Database, Log, and Queue components support disabling auto-loading for their
