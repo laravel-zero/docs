@@ -12,6 +12,7 @@ Laravel Zero ships with the [Filesystem](https://laravel.com/docs/filesystem) co
 
 > Writing files after you [build](/docs/build-a-standalone-application) your application is different, check [Writing files in production](#production)
 
+<a name="using-the-storage-facade"></a>
 ### Using the Storage facade
 
 ```php
@@ -20,6 +21,7 @@ use Storage;
 Storage::put("reminders.txt", "Task 1");
 ```
 
+<a name="using-the-file-facade"></a>
 ### Using the File facade
 
 ```php
@@ -35,6 +37,7 @@ When using the filesystem be aware that when you build the application with `app
 
 > We are currently looking into streamlining the filesystem access. The code below is an example of how you can currently write files from the built application to the current working directory.
 
+<a name="with-the-storage-facade"></a>
 #### With the Storage facade
 
 If you want to use the `Storage` facade you will need to use a config file, similar to how Laravel does it.
@@ -58,6 +61,7 @@ return [
     
 - Use the `Storage` facade like you would before.
 
+<a name="with-the-file-facade"></a>
 #### With the File facade
 
 Using the `File` facade is just the same as normal
