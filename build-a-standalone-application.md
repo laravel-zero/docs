@@ -7,7 +7,7 @@ description: Build a standalone PHAR archive to ease the deployment or distribut
 
 Your Laravel Zero project, by default, allows you to build a standalone PHAR archive to ease the deployment or distribution of your project.
 ```bash
-php your-app-name app:build <your-build-name>
+php <your-app-name> app:build <your-build-name>
 ```
 
 The build will provide a single phar archive, ready to use, containing all the code of your project and its dependencies. You will then be able to execute it directly:
@@ -23,6 +23,26 @@ C:\application\path> php builds\<your-build-name>
 We use [`humbug/box`](https://github.com/box-project/box) to provide fast application bundling. In order to configure your build, you should take a look at the file `box.json`.
 
 Please check the box documentation to understand all options: [github.com/box-project/box/blob/master/doc/configuration.md](https://github.com/box-project/box/blob/master/doc/configuration.md).
+
+<a name="distribute-via-packagist"></a>
+## Distribute via Packagist
+
+To distribute your application via [Packagist](https://packagist.org) you will need to make some changes to your `composer.json` & `box.json` files.
+
+- In your `composer.json` file you will need to move the `laravel-zero/framework` dependency from `require` to `require-dev`.
+
+- In your `box.json` file you should add `"exclude-dev-files": false,`
+
+Now you will need to build your application again with:
+```bash
+php <your-app-name> app:build <your-build-name>
+```
+
+And you are ready to distribute your package via [Packagist](https://packagist.org)  and install it by running
+```
+composer global require <your-app-name>
+```
+
 
 <a name="non-interactive-build"></a>
 ## Non-interactive build
