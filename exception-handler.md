@@ -3,7 +3,6 @@ title: Exception Handler
 description: Managing which exceptions to report
 ---
 
-
 # Introduction
 
 When you start a new Laravel Zero project, error and exception handling is part of the core. 
@@ -12,7 +11,7 @@ The `Illuminate\Foundation\Exceptions\Handler` class is where all exceptions tri
 
 > If you would like to view the internals, this class is part of the [`laravel-zero/foundation`](https://github.com/laravel-zero/foundation) package.
 
-
+<a name="custom-exception-handler"></a>
 # Custom Exception Handler
 
 When working with Laravel Zero you might want to prevent some exceptions to be reported to the end user.  
@@ -21,6 +20,7 @@ As `Illuminate\Foundation\Exceptions\Handler` is part of the core you can't just
 
 Below we'll describe how you can create your own handler so you can add your custom logic.
 
+<a name="creating-the-handler-class"></a>
 #### Creating The Handler Class
 
 Inside your `app` folder, create a new folder `Exceptions`. Inside that folder, create a file called `Handler.php`. This will be our new Handler in the next few minutes. 
@@ -65,6 +65,7 @@ As you can see we are just extending the default handler here.
 > The above content might feel familiar to those using Laravel.  
 It's a trimmed down version of the [`App\Exceptions\Handler`](https://github.com/laravel/laravel/blob/master/app/Exceptions/Handler.php) of Laravel.
 
+<a name="replacing-the-default-handler"></a>
 #### Replacing The Default Handler
 
 In the file `bootstrap/app.php` look for the following code.
