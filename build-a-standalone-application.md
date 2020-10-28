@@ -24,6 +24,7 @@ We use [`humbug/box`](https://github.com/box-project/box) to provide fast applic
 
 Please check the box documentation to understand all options: [github.com/box-project/box/blob/master/doc/configuration.md](https://github.com/box-project/box/blob/master/doc/configuration.md).
 
+<a name="non-interactive-build"></a>
 ## Non-interactive build
 
 When you build you get asked about build version, in case you want to skip this step you can provide the build version as an option:
@@ -31,6 +32,7 @@ When you build you get asked about build version, in case you want to skip this 
 php your-app-name app:build --build-version=<your-build-version>
 ```
 
+<a name="self-update"></a>
 ## Self update
 
 Using the `app:install` Artisan command you can install the `self-update` component:
@@ -41,6 +43,7 @@ php <your-app-name> app:install self-update
 This component will add an Artisan `self-update` command to every build application. This command
 will try to download the latest version from GitHub, if available.
 
+<a name="custom-update-strategies"></a>
 #### Custom update strategies
 
 The self-updater supports custom "strategies" to configure how the application is updated. By default it uses the `GithubStrategy` which will try to download the PHAR binary from a `builds/` directory in the GitHub source repository.
@@ -64,12 +67,14 @@ php <your-app-name> vendor:publish --provider "LaravelZero\Framework\Components\
 
 Then update the `updater.strategy` value in the configuration file to use the required class name.
 
+<a name="environment-variables"></a>
 ## Environment Variables
 
 If the `dotenv` component is installed, you can place a `.env` file in the same
 folder as the build application to make Laravel Zero load environment variables from
 that same file.
 
+<a name="database"></a>
 ## Database
 
 To use SQLite in your standalone PHAR application, you need to tell Laravel Zero where to place the database in a production environment.

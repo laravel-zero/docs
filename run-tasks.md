@@ -20,10 +20,7 @@ $this->task("Doing something else", function () {
 
 The code above will output the following result:
 
-<img
-    src="https://raw.githubusercontent.com/nunomaduro/laravel-console-task/master/docs/example.png"
-    class="md:w-4/5 md:mx-auto"
->
+<img src="https://raw.githubusercontent.com/nunomaduro/laravel-console-task/master/docs/example.png" class="md:w-4/5 md:mx-auto">
 
 Get more details: [https://github.com/nunomaduro/laravel-console-task](https://github.com/nunomaduro/laravel-console-task).
 

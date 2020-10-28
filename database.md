@@ -27,6 +27,7 @@ $users = DB::table('users')->get();
 
 Laravel [Database Migrations](https://laravel.com/docs/migrations), [database factories](https://laravel.com/docs/database-testing#writing-factories), and [Database Seeding](https://laravel.com/docs/seeding) features are also included.
 
+<a name="note-on-phar-builds"></a>
 ## Note on PHAR builds
 
 The `database` directory isn't included in Laravel Zero standalone PHAR builds by default.

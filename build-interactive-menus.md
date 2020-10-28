@@ -18,6 +18,7 @@ Using menus in the console may sound silly, but is fantastic! Your users
 don't need to type the number corresponding to their choice any more. They
 can just use the arrows on their keyboard to make their selection!
 
+<a name="example"></a>
 #### Example
 
 Create your first menu by copy pasting the code below in your commands
@@ -36,12 +37,10 @@ $this->info("You have chosen the option number #$option");
 When you now run your command your output should be similar to this
 image:
 
-<img
-    src="https://raw.githubusercontent.com/nunomaduro/laravel-console-menu/master/docs/example.png"
-    class="md:w-4/5 md:mx-auto"
->
+<img src="https://raw.githubusercontent.com/nunomaduro/laravel-console-menu/master/docs/example.png" class="md:w-4/5 md:mx-auto">
 
-<h4 class="mt-0">Changing the appearance</h4>
+<a name="changing-the-appearance"></a>
+#### Changing the appearance
 
 The appearance of the menu can be set with a fluent API. What if we like
 a green font on a black background? The code below shows you how to do just that and some extras.

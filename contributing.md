@@ -7,6 +7,7 @@ description: How to contribute
 
 Everything that we make is 100% open source and developed collaboratively by people from all over the world. Even if you're not a programmer, you can get involved and make a difference.
 
+<a name="code"></a>
 #### Code
 
 You may propose new features or improvements of existing Laravel Zero behavior. If you propose a new feature, please be willing to implement at least some of the code that would be needed to complete the feature.
@@ -23,6 +24,7 @@ All the contribution guidelines are mentioned [here](https://github.com/laravel-
 
 You can have a look at the [CHANGELOG](https://github.com/laravel-zero/laravel-zero/blob/master/CHANGELOG.md) for constant updates & detailed information about the changes. You can also follow the twitter account for latest announcements : [@enunomaduro](https://twitter.com/enunomaduro)
 
+<a name="funding"></a>
 #### Funding
 
 My name is Nuno Maduro and I am the creator and maintainer of tools such as Laravel Zero, Collision, etc.

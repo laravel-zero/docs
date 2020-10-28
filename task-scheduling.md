@@ -20,6 +20,7 @@ You may define all of your scheduled tasks in the `schedule` method of the Artis
     }
 ```
 
+<a name="viewing-scheduled-tasks"></a>
 ### Viewing scheduled tasks
 
 The Schedule List component can be used to view a list of tasks that are scheduled in your application.

@@ -14,7 +14,8 @@ To install this component, run the following command:
 php <your-app-name> app:install http
 ```
 
-#### Usage:
+<a name="usage"></a>
+#### Usage
 
 The HTTP Client adds easy to use methods for standard HTTP requests.
 

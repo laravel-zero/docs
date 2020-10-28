@@ -9,7 +9,8 @@ description: Create a new Laravel Zero project
 
 Laravel Zero utilizes [Composer](https://getcomposer.org) to manage its dependencies. So, before using Laravel Zero, make sure you have Composer installed on your machine.
 
-#### Via Laravel Zero Installer
+<a name="via-the-laravel-zero-installer"></a>
+#### Via the Laravel Zero Installer
 
 First, download the Laravel Zero installer using Composer:
 
@@ -25,6 +26,7 @@ Once installed, the `laravel-zero new` command will create a fresh Laravel Zero 
 laravel-zero new movie-cli
 ```
 
+<a name="via-composer-create-project"></a>
 #### Via Composer Create-Project
 
 Alternatively, you may also install Laravel Zero by issuing the Composer `create-project` command in your terminal:

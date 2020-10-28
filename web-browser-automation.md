@@ -32,8 +32,6 @@ class VisitLaravelZeroCommand extends Command
 
 Output example:
 
-<p align="center">
-    <img src="https://github.com/nunomaduro/laravel-console-dusk/blob/master/docs/example.gif?raw=true">
-</p>
+<img src="https://github.com/nunomaduro/laravel-console-dusk/raw/master/docs/example.gif" class="md:w-4/5 md:mx-auto">
 
 Get more details: [https://github.com/nunomaduro/laravel-console-dusk](https://github.com/nunomaduro/laravel-console-dusk).

@@ -16,4 +16,3 @@ The code above will generate the following notification in your desktop:
 <img src="https://raw.githubusercontent.com/nunomaduro/laravel-desktop-notifier/stable/docs/icon.png" class="md:w-4/5 md:mx-auto">
 
 Get more details: [https://github.com/nunomaduro/laravel-desktop-notifier](https://github.com/nunomaduro/laravel-desktop-notifier).
-

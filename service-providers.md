@@ -3,7 +3,6 @@ title: Service Providers
 description: The `App\ServiceProviders` folder
 ---
 
-
 # Service Providers
 
 The `App\ServiceProviders` folder should contain Service Providers files. The usage of

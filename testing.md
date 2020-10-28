@@ -22,6 +22,7 @@ As usual, you can always run your tests using the `pest` command:
 ./vendor/bin/pest
 ```
 
+<a name="asserting-that-a-command-was-called"></a>
 ## Asserting that a command was called
 
 Using the `assertCommandCalled` test helper method you can check if a specific method was called.
@@ -44,6 +45,7 @@ test('migration command', function () {
 });
 ```
 
+<a name="using-phpunit-style-tests"></a>
 ## Using PHPUnit-style tests
 
 Pest has full support for running PHPUnit tests, however if you would rather use PHPUnit directly, you can either run the binary with:
