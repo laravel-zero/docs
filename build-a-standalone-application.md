@@ -29,9 +29,24 @@ Please check the box documentation to understand all options: [github.com/box-pr
 
 To distribute your application via [Packagist](https://packagist.org) you will need to make some changes to your `composer.json` & `box.json` files.
 
-- In your `composer.json` file you will need to move the `laravel-zero/framework` dependency from `require` to `require-dev`.
+- In your `composer.json` file you will need to move the `laravel-zero/framework` dependency from `require` to `require-dev`, also you will need to change
+the bin path to point to your build.
+```diff
+-"require": [
+-  "laravel-zero/framework": "x.x"
+-]
++"require-dev": [
++  "laravel-zero/framework": "x.x"
++]
 
-- In your `box.json` file you should add `"exclude-dev-files": false,`
+-"bin": ["<your-app-name>"]
++"bin": ["builds/<your-app-name>"]
+```
+
+- In your `box.json` file you should add:
+```
+"exclude-dev-files": false,
+```
 
 Now you will need to build your application again with:
 ```bash
