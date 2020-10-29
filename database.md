@@ -27,6 +27,28 @@ $users = DB::table('users')->get();
 
 Laravel [Database Migrations](https://laravel.com/docs/migrations), [database factories](https://laravel.com/docs/database-testing#writing-factories), and [Database Seeding](https://laravel.com/docs/seeding) features are also included.
 
+<a name="redis"></a>
+## Redis
+
+Laravel Zero also provides a component for [Redis](https://redis.io), an in-memory data-structure store.
+
+To get started with using Redis for fast data storage or caching, install the Component with:
+
+```bash
+php <your-app-name> app:install redis
+```
+
+You can then use the Redis facade after configuring Redis in your `config/database.php`.
+
+```php
+use Illuminate\Support\Facades\Redis;
+
+Redis::set('full_name', 'Daniel LaRusso');
+Redis::get('full_name');
+```
+
+Check the [Laravel documentation](https://laravel.com/docs/8.x/redis) for full details of using Redis.
+
 <a name="note-on-phar-builds"></a>
 ## Note on PHAR builds
 
