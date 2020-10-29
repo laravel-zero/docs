@@ -5,7 +5,7 @@ description: Filesystem interaction through Storage of File facade, just like La
 
 # Filesystem
 
-If you want to move files in your system, or to different providers like AwsS3 and Dropbox. By default,
+If you want to move files in your system, or to different providers like AWS S3 and Dropbox. By default,
 Laravel Zero ships with the [Filesystem](https://laravel.com/docs/filesystem) component of Laravel.
 
 **Note:** By default the root directory is `your-app-name/storage`.
@@ -67,5 +67,5 @@ return [
 Using the `File` facade is just the same as normal
 
 ```php 
-File::put( getcwd() . DIRECTORY_SEPARATOR . "reminders.txt", "Task 1");
+File::put(getcwd() . "/reminders.txt", "Task 1");
 ```

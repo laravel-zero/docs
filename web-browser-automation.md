@@ -23,7 +23,7 @@ class VisitLaravelZeroCommand extends Command
     public function handle()
     {
         $this->browse(function ($browser) {
-            $browser->visit('http://laravel-zero.com')
+            $browser->visit('https://laravel-zero.com')
                 ->assertSee('Collision');
         });
     }
