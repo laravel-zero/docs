@@ -33,3 +33,12 @@ Once a font has been downloaded, the `logo.font` value can be set in the config 
 ```
 
 For more details, check out the [Laminas docs](https://docs.laminas.dev/laminas-text/figlet) on FIGlets.
+
+
+<a name="using-a-different-font-name"></a>
+### Using a different font name
+
+In the `config/logo.php` file you will find a property called `name`, you can change it to be any other text if the logo should be different to the app name.
+
+By default, Laravel Zero uses the app name.
+
