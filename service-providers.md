@@ -1,11 +1,11 @@
 ---
 title: Service Providers
-description: The `App\ServiceProviders` folder
+description: The `app/Providers` folder
 ---
 
 # Service Providers
 
-The `App\ServiceProviders` folder should contain Service Providers files. The usage of
+The `app/Providers` folder should contain Service Providers files. The usage of
 [Laravel Service Providers](https://laravel.com/docs/providers) is the best way to specify
 when a concrete implementation is bound to a contract/interface:
 ```php
