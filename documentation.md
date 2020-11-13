@@ -1,12 +1,14 @@
 - ## Getting Started
     - [Introduction](/docs/introduction)
-	- [Installation](/docs/installation)
+    - [Installation](/docs/installation)
+
 - ## Usage
     - [Commands](/docs/commands)
-	- [Service Providers](/docs/service-providers)
-	- [Configuration](/docs/configuration)
-	- [Testing](/docs/testing)
-	- [Exception handler](/docs/exception-handler)
+    - [Service Providers](/docs/service-providers)
+    - [Configuration](/docs/configuration)
+    - [Testing](/docs/testing)
+    - [Exception handler](/docs/exception-handler)
+
 - ## Add-ons
     - [Database](/docs/database)
     - [Logging](/docs/logging)
@@ -24,4 +26,3 @@
 - ## More
     - [Upgrade](/docs/upgrade)
     - [Contributing](/docs/contributing)
-	
