@@ -32,9 +32,9 @@ Get more details: [laravel.com/docs/logging](https://laravel.com/docs/logging).
 <a name="note-on-phar-build"></a>
 ## Note on PHAR build
 
-When your App built into the PHAR standalone file, the underneath Laravel helper `storage_path()` used to determine where to store log files (if on a filesystem, see `/config/logging.php` in your project), points inside the PHAR package; which is by default read-only.
+When your App built into the PHAR standalone file, the underneath Laravel helper `storage_path()` used to determine where to store log files (if on a filesystem, see `config/logging.php` in your project), points inside the PHAR package; which is by default read-only.
 
-For such an occasion, we suggest to reconfigure the path in your `/app/Providers/AppServiceProvider::class` on the fly, like for example:
+For such an occasion, we suggest to reconfigure the path in your `app/Providers/AppServiceProvider::class` on the fly, like for example:
 
 ```php
 /**

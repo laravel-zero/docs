@@ -1,6 +1,6 @@
 ---
 title: Environment Variables
-description: Dotenv component loads environment variables from a .env file
+description: The DotEnv component loads environment variables from a .env file
 ---
 
 # Environment Variables
