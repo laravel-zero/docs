@@ -1,6 +1,6 @@
 ---
 title: Commands
-description: The `App/Commands` folder
+description: The `app/Commands` folder
 ---
 
 # Commands
