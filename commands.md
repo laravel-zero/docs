@@ -1,12 +1,12 @@
 ---
 title: Commands
-description: The `App\Commands` folder
+description: The `app/Commands` folder
 ---
 
 # Commands
 
-The `App\Commands` folder should contain your application Artisan commands. By default,
-it brings the `app\Commands\InspiringCommand.php` as example command:
+The `app/Commands` folder should contain your application's Artisan commands. By default,
+it provides `app/Commands/InspiringCommand.php` as an example command:
 ```php
 namespace App\Commands;
 
@@ -65,14 +65,11 @@ to define how to gather input from the user through arguments or options:
                         {--age= : The age of the user (optional)}'
 ```
 
-For more information, check out the [Defining Input Expectations](https://laravel.com/docs/artisan#defining-input-expectations)
-on the Laravel Documentation.
+For more information, check out the [Defining Input Expectations](https://laravel.com/docs/artisan#defining-input-expectations) on the Laravel Documentation.
 
-The `description` property should contain one line description of your command's job. Later, this description is
-used on the application list of commands.
+The `description` property should contain one line description of your command's job. Later, this description is used on the application list of commands.
 
-The `handle` method is the place where the logic of your command should be. This method will be called when your
-command is executed. Note that we are able to inject any dependencies we need into the `handle` method:
+The `handle` method is the place where the logic of your command should be. This method will be called when your command is executed. Note that we are able to inject any dependencies we need into the `handle` method:
 ```php
 public function handle(Service $service)
 {

@@ -20,6 +20,6 @@ Get more details at: [github.com/nunomaduro/laravel-desktop-notifier](https://gi
 <a name="notes"></a>
 ### Notes
 
-**On MacOS**, to use an icon for the notification, you will need to install the [terminal-notifier](https://github.com/julienXX/terminal-notifier) command-line tool.
+**On macOS**, to use an icon for the notification, you will need to install the [terminal-notifier](https://github.com/julienXX/terminal-notifier) command-line tool.
 
 This can be installed via [RubyGems](https://rubygems.org/gems/terminal-notifier) with `gem install terminal-notifier`, or via [Homebrew](https://brew.sh) with `brew install terminal-notifier`.

@@ -10,7 +10,7 @@ Using the `app:install` Artisan command you can install the `console-dusk` compo
 php <your-app-name> app:install console-dusk
 ```
 
-The Console Dusk allows the usage of Laravel Dusk in Artisan commands. Horever, in Laravel Zero
+The Console Dusk allows the usage of Laravel Dusk in Artisan commands. However, in Laravel Zero
 you can use Laravel Dusk for web tasks that should be automated. Let's take a look at the usage:
 ```php
 class VisitLaravelZeroCommand extends Command
