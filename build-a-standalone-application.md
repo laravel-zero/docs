@@ -24,6 +24,21 @@ We use [`humbug/box`](https://github.com/box-project/box) to provide fast applic
 
 Please check the box documentation to understand all options: [github.com/box-project/box/blob/master/doc/configuration.md](https://github.com/box-project/box/blob/master/doc/configuration.md).
 
+### Debug information
+
+#### Failing build?
+If your build is failing, it can be due to multiple things. A typical pitfall is missing `ext-*` dependencies in PHP (e.g. When running build in Docker container/CI)
+
+Two commands that can be helpful to you to figure out what your problem is, are:  
+
+```shell
+# -v for Verbose
+php <your-app-name> app:build <your-build-name> -v
+
+# This does the compiling, so can be used if -v isn't helping you. 
+./vendor/laravel-zero/framework/bin/box compile --working-dir=/project/path --config=/project/path/box.json --debug 
+```
+
 <a name="distribute-via-packagist"></a>
 ## Distribute via Packagist
 
