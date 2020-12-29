@@ -24,6 +24,7 @@ We use [`humbug/box`](https://github.com/box-project/box) to provide fast applic
 
 Please check the box documentation to understand all options: [github.com/box-project/box/blob/master/doc/configuration.md](https://github.com/box-project/box/blob/master/doc/configuration.md).
 
+<a name="debug-information"></a>
 ### Debug information
 
 #### Failing build?
