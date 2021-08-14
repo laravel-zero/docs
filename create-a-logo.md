@@ -29,7 +29,7 @@ Once a font has been downloaded, the `logo.font` value can be set in the config 
 ```diff
 // config/logo.php
 -  'font' => \LaravelZero\Framework\Components\Logo\FigletString::DEFAULT_FONT,
-+  'font' => resources_path('fonts/doom.flf'),
++  'font' => resource_path('fonts/doom.flf'),
 ```
 
 For more details, check out the [Laminas docs](https://docs.laminas.dev/laminas-text/figlet) on FIGlets.
