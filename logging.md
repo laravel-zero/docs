@@ -15,7 +15,7 @@ messages to files, the system error log, and even to Slack to notify your entire
 
 As usual, the usage is similar to Laravel:
 ```php
-use Log;
+use Illuminate\Support\Facades\Log;
 
 Log::emergency($message);
 Log::alert($message);
