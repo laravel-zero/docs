@@ -10,6 +10,10 @@ Using the `app:install` Artisan command you can install the `menu` component:
 php <your-app-name> app:install menu
 ```
 
+**Note:** This component only works on systems with the php extension
+`ext-posix` enabled. **This will prevent your application to work on
+Windows as `ext-posix` is not available on Windows systems**
+
 Interactive menus in console applications are very powerful. They
 provide a simple interface that requires little interaction. With Laravel
 Zero, you can use the `menu` method to create beautiful menus:
