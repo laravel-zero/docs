@@ -10,7 +10,7 @@ Using the `app:install` Artisan command you can install the `menu` component:
 php <your-app-name> app:install menu
 ```
 
-**Note:** This component only works on systems with the php extension
+> **Note:** This component only works on systems with the php extension
 `ext-posix` enabled. **This will prevent your application to work on
 Windows as `ext-posix` is not available on Windows systems**
 
