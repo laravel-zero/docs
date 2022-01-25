@@ -22,6 +22,7 @@
     - [Build a standalone application](/docs/build-a-standalone-application)
     - [Tinker REPL](/docs/tinker-repl)
     - [HTTP Client](/docs/http-client)
+    - [View](/docs/view)
     - [Cache](/docs/cache)
 
 - ## More
