@@ -59,8 +59,6 @@ $this->menu($title, $options)
     ->setExitButtonText("Abort")
     // remove exit button with
     // ->disableDefaultItems()
-    ->setUnselectedMarker('❅')
-    ->setSelectedMarker('✏')
     ->setTitleSeparator('*-')
     ->addLineBreak('<3', 2)
     ->addStaticItem('AREA 2')
