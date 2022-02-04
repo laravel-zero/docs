@@ -40,6 +40,8 @@ The following Components have bumped their minimum dependencies. It's unlikely y
     `laminas/laminas-text` bumped to `^2.9`
 - Menu:
     `nunomaduro/laravel-console-menu` bumped to `^3.3`
+- Updater:
+    `laravel-zero/phar-updater` bumped to `^1.2`
 
 <a name="upgrade-8.0.0"></a>
 ## Upgrading to 8.0 from 7.x
