@@ -5,12 +5,32 @@ description: Laravel Zero Upgrade Guide
 
 # Upgrade Guide
 
+- [Upgrading To 9.0 From 8.x](#upgrade-9.0.0)
 - [Upgrading To 8.0 From 7.x](#upgrade-8.0.0)
 - [Upgrading To 7.0 From 6.x](#upgrade-7.0.0)
 - [Upgrading To 6.0 From 5.8](#upgrade-6.0.0)
 - [Upgrading To 5.8 From 5.7](#upgrade-5.8.0)
 - [Upgrading To 5.7 From 5.6](#upgrade-5.7.0)
 - [Upgrading To 5.6 From 4.0](#upgrade-5.6.0)
+
+<a name="upgrade-9.0.0"></a>
+## Upgrading to 9.0 from 8.x
+
+### Estimated upgrade time: 5-10 minutes
+
+> We attempt to document every possible breaking change. Since some of these breaking changes are in obscure parts of the framework only a portion of these changes may actually affect your application.
+
+### PHP 8.0 required
+
+The new minimum PHP version is now 8.0.
+
+### Updating dependencies
+
+Update your `laravel-zero/framework` dependency to `^9.0` in your `composer.json` file.
+
+#### Update Illuminate dependencies
+
+If you are using any components (Database, Queue, etc.) that use Illuminate dependencies, these will need to be updated to `^9.0`.
 
 <a name="upgrade-8.0.0"></a>
 ## Upgrading to 8.0 from 7.x
