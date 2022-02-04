@@ -32,6 +32,15 @@ Update your `laravel-zero/framework` dependency to `^9.0` in your `composer.json
 
 If you are using any components (Database, Queue, etc.) that use Illuminate dependencies, these will need to be updated to `^9.0`.
 
+#### Update component dependencies
+
+The following Components have bumped their minimum dependencies. It's unlikely you will need to change anything with these as the previous version selectors include the latest versions.
+
+- Logo:
+    `laminas/laminas-text` bumped to `^2.9`
+- Menu:
+    `nunomaduro/laravel-console-menu` bumped to `^3.3`
+
 <a name="upgrade-8.0.0"></a>
 ## Upgrading to 8.0 from 7.x
 
