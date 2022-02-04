@@ -36,6 +36,8 @@ If you are using any components (Database, Queue, etc.) that use Illuminate depe
 
 The following Components have bumped their minimum dependencies. It's unlikely you will need to change anything with these as the previous version selectors include the latest versions.
 
+- Http:
+    `guzzlehttp/guzzle` bumped to `^7.4`
 - Logo:
     `laminas/laminas-text` bumped to `^2.9`
 - Menu:
