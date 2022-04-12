@@ -14,6 +14,7 @@
     - [Logging](/docs/logging)
     - [Filesystem](/docs/filesystem)
     - [Run tasks](/docs/run-tasks)
+    - [Task Scheduling](/docs/task-scheduling)
     - [Create a logo](/docs/create-a-logo)
     - [Build interactive menus](/docs/build-interactive-menus)
     - [Send desktop notifications](/docs/send-desktop-notifications)
