@@ -104,11 +104,11 @@ Custom strategies must implement the following [`StrategyInterface` interface](h
 By default, a few strategies are provided in Laravel Zero:
 
 - Download the PHAR file from the `builds/` directory on GitHub:  
-  `LaravelZero\Framework\Components\Updater\Strategy\GitHubStrategy`
+  `LaravelZero\Framework\Components\Updater\Strategy\GithubStrategy`
 - Download the PHAR file from GitHub releases assets:  
-  `LaravelZero\Framework\Components\Updater\Strategy\GitHubReleasesStrategy`
+  `LaravelZero\Framework\Components\Updater\Strategy\GithubReleasesStrategy`
 - Download the PHAR file from the `builds/` directory on GitLab:  
-  `LaravelZero\Framework\Components\Updater\Strategy\GitLabStrategy`
+  `LaravelZero\Framework\Components\Updater\Strategy\GitlabStrategy`
 
 To use a custom strategy, first publish the config using:
 
