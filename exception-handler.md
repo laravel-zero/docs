@@ -47,16 +47,15 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * Report or log an exception.
+     * Register the exception handling callbacks for the application.
      *
-     * @param  \Throwable  $exception
      * @return void
-     *
-     * @throws \Exception
      */
-    public function report(Throwable $exception)
+    public function register()
     {
-        parent::report($exception);
+        $this->reportable(function (Throwable $e) {
+            //
+        });
     }
 }
 ```
@@ -64,6 +63,8 @@ As you can see we are just extending the default handler here.
 
 > The above content might feel familiar to those using Laravel.  
 It's a trimmed down version of the [`App\Exceptions\Handler`](https://github.com/laravel/laravel/blob/master/app/Exceptions/Handler.php) of Laravel.
+
+See [the official Laravel documentation](https://laravel.com/docs/errors#reporting-exceptions) for more details.
 
 <a name="replacing-the-default-handler"></a>
 #### Replacing The Default Handler
@@ -99,20 +100,18 @@ protected $dontReport = [
 ];
 ```
 
-This however results in `RuntimeException` not being reported at all. More fine grained control can be achieved by updating the `report` function.
+This however results in `RuntimeException` not being reported at all. More fine grained control can be achieved by updating the `register` function.
 
 The following would prevent the *Not enough arguments* exception to be reported, but any other `RuntimeException` would still be reported.
 
 ```php
-public function report(Throwable $exception)
+public function register(Throwable $exception)
 {
-    if ($exception instanceof RuntimeException) {
-        if (Str::contains($exception->getMessage(), ['Not enough arguments'])) {
-            return;
+    $this->reportable(function (RuntimeException $e) {
+        if (Str::contains($e->getMessage(), ['Not enough arguments'])) {
+            return false;
         }
-    }
-
-    parent::report($exception);
+    });
 }
 ```
 
@@ -120,10 +119,10 @@ If you would like to disable the reporting only when running from the built phar
 
 ```php
 if (\Phar::running()) {
-    if ($exception instanceof RuntimeException) {
-        if (Str::contains($exception->getMessage(), ['Not enough arguments'])) {
-            return;
+    $this->reportable(function (RuntimeException $e) {
+        if (Str::contains($e->getMessage(), ['Not enough arguments'])) {
+            return false;
         }
-    }
+    });
 }
 ```
