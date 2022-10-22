@@ -54,7 +54,7 @@ class InspiringCommand extends Command
 
 Of course, you can always create a new command using the `make:command` Artisan command:
 ```bash
-php <your-app-name> make:command <NewCommand>
+php application make:command NewCommandName
 ```
 
 The `signature` property should contain the definition of the input expectations. This is the place
