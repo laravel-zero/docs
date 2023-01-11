@@ -5,6 +5,7 @@ description: Laravel Zero Upgrade Guide
 
 # Upgrade Guide
 
+- [Upgrading To 10.0 From 9.x](#upgrade-10.0.0)
 - [Upgrading To 9.0 From 8.x](#upgrade-9.0.0)
 - [Upgrading To 8.0 From 7.x](#upgrade-8.0.0)
 - [Upgrading To 7.0 From 6.x](#upgrade-7.0.0)
@@ -12,6 +13,40 @@ description: Laravel Zero Upgrade Guide
 - [Upgrading To 5.8 From 5.7](#upgrade-5.8.0)
 - [Upgrading To 5.7 From 5.6](#upgrade-5.7.0)
 - [Upgrading To 5.6 From 4.0](#upgrade-5.6.0)
+
+<a name="upgrade-10.0.0"></a>
+## Upgrading to 10.0 from 9.x
+
+### Estimated upgrade time: 5-10 minutes
+
+> We attempt to document every possible breaking change. Since some of these breaking changes are in obscure parts of the framework only a portion of these changes may actually affect your application.
+
+### PHP 8.1 required
+
+The new minimum PHP version is now 8.1.
+
+### Updating dependencies
+
+Update your `laravel-zero/framework` dependency to `^10.0` in your `composer.json` file.
+
+#### Update Illuminate dependencies
+
+If you are using any components (Database, Queue, etc.) that use Illuminate dependencies, these will need to be updated to `^10.0`.
+
+#### Update component dependencies
+
+The following Components have bumped their minimum dependencies. It's unlikely you will need to change anything with these as the previous version selectors include the latest versions.
+
+- Console Dusk:
+  `nunomaduro/laravel-console-dusk` bumped to `^1.11`
+- Http:
+  `guzzlehttp/guzzle` bumped to `^7.5`
+- Logo:
+  `laminas/laminas-text` bumped to `^2.10`
+- Menu:
+  `nunomaduro/laravel-console-menu` bumped to `^3.4`
+- Updater:
+  `laravel-zero/phar-updater` bumped to `^1.3`
 
 <a name="upgrade-9.0.0"></a>
 ## Upgrading to 9.0 from 8.x
