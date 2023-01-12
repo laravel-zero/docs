@@ -15,12 +15,7 @@ you can use Laravel Dusk for web tasks that should be automated. Let's take a lo
 ```php
 class VisitLaravelZeroCommand extends Command
 {
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
+    public function handle(): void
     {
         $this->browse(function ($browser) {
             $browser->visit('https://laravel-zero.com')

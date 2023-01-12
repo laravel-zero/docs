@@ -31,21 +31,16 @@ class InspiringCommand extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
-    public function handle()
+    public function handle(): void
     {
         $this->info('Simplicity is the ultimate sophistication.');
     }
 
     /**
      * Define the command's schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
-     * @return void
      */
-    public function schedule(Schedule $schedule)
+    public function schedule(Schedule $schedule): void
     {
         // $schedule->command(static::class)->everyMinute();
     }
@@ -71,7 +66,7 @@ The `description` property should contain one line description of your command's
 
 The `handle` method is the place where the logic of your command should be. This method will be called when your command is executed. Note that we are able to inject any dependencies we need into the `handle` method:
 ```php
-public function handle(Service $service)
+public function handle(Service $service): void
 {
     $service->execute('foo');
 
