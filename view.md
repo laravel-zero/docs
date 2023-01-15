@@ -24,4 +24,31 @@ View::make('view.name', ['foo' => 'bar']);
 view('view-name', ['foo' => 'bar']);
 ```
 
+## Using views in production
+
+In order to use blade view in production, a `view.php` file must be added in `config` directory to specify the path where the compiled view should be stored.
+
+For example:
+```php
+<?php
+return [
+    'paths' => [
+        resource_path('views'),
+    ],
+
+    'compiled' => getcwd() //the working directory of the phar
+]
+```
+
+You also need to add the `resources` directory in the `box.json` file to include it in the PHAR file will be compiled:
+```json
+"directories": [
+    "app",
+    "bootstrap",
+    "config",
+    "vendor",
+    "resources"
+],
+```
+
 Full details on using the View component is available on the [main Laravel documentation](https://laravel.com/docs/views).
