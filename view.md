@@ -24,13 +24,15 @@ View::make('view.name', ['foo' => 'bar']);
 view('view-name', ['foo' => 'bar']);
 ```
 
+<a name="views-in-production"></a>
 ## Using views in production
 
- In order to use blade view in production, a `view.php` file must be added in `config` directory to specify the path where the compiled view should be stored.
+ In order to use Blade views in production, a `view.php` file must be added in the `config` directory to specify the path where the compiled views should be stored.
 
  For example:
  ```php
  <?php
+
  return [
      'paths' => [
          resource_path('views'),
@@ -38,16 +40,15 @@ view('view-name', ['foo' => 'bar']);
     'compiled' => \Phar::running()
         ? getcwd()
         : env('VIEW_COMPILED_PATH', realpath(storage_path('framework/views'))),
- ]
+ ];
  ```
+ 
+ An alternative to using the current working directory is to use the system temporary directory with `sys_get_temp_dir()`, but any path can be specified, such as a custom location in the user's home directory.
 
- You also need to add the `resources` directory in the `box.json` file to include it in the PHAR file will be compiled:
+The `resources` directory must also be added to the `box.json` file to include it in the compiled PHAR file:
  ```json
  "directories": [
-     "app",
-     "bootstrap",
-     "config",
-     "vendor",
+     // ...
      "resources"
  ],
  ```
