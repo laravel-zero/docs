@@ -5,7 +5,7 @@ description: Create a new Laravel Zero project
 
 # Installation
 
-> **Requires [PHP 8.0+](https://php.net/releases)**
+> **Requires [PHP 8.1+](https://php.net/releases)**
 
 Laravel Zero utilizes [Composer 2](https://getcomposer.org) to manage its dependencies. So, before using Laravel Zero, make sure you have Composer installed on your machine.
 

@@ -16,7 +16,7 @@ need to add the following Cron entry to your server:
 You may define all of your scheduled tasks in the `schedule` method of the Artisan command:
 
 ```php
-public function schedule(Schedule $schedule)
+public function schedule(Schedule $schedule): void
 {
     $schedule->command(static::class)->everyMinute();
 }

@@ -21,7 +21,7 @@ app(Contract::class) // Returns a Concrete implementation.
 
 This is useful, because you may want to ask for the contract instead of the implementation:
 ```php
-public function handle(ServiceContract $service)
+public function handle(ServiceContract $service): void
 {
     $service->execute('foo');
 }
