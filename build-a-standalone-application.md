@@ -45,8 +45,9 @@ php <your-app-name> app:build <your-build-name> -v
 
 To distribute your application via [Packagist](https://packagist.org) you will need to make some changes to your `composer.json` & `box.json` files.
 
-In your `composer.json` file you will need to move the `laravel-zero/framework` dependency from `require` to `require-dev`, also you will need to change
-the bin path to point to your build.
+In your `composer.json` file you will need to move the `laravel-zero/framework` dependency as well as any other custom dependencies from `require` to `require-dev`, excluding the supported PHP versions and required extensions.
+
+You will also need to change the bin path to point to your build.
 ```diff
 -   "require": [
 -       "laravel-zero/framework": "x.x"
@@ -63,6 +64,8 @@ In your `box.json` file you should add:
 ```
 "exclude-dev-files": false,
 ```
+
+The reason for the above is that Composer will install all non-development dependencies by default, but these are already contained within the PHAR archive, thanks to the above change in `box.json`. By converting them to development dependencies, Composer will skip them altogether, which also ensures that they won't conflict with other globally-installed dependencies.
 
 Now you will need to build your application again with:
 ```bash
