@@ -48,6 +48,12 @@ The following Components have bumped their minimum dependencies. It's unlikely y
 - Updater:
   `laravel-zero/phar-updater` bumped to `^1.3`
 
+### Box 4.x
+
+The Box binary has been upgraded to 4.x.
+
+Check the [Box Upgrade Guide](https://github.com/box-project/box/blob/main/UPGRADE.md#from-3x-to-4x) for more information.
+
 <a name="upgrade-9.0.0"></a>
 ## Upgrading to 9.0 from 8.x
 
