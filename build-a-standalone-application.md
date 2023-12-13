@@ -94,7 +94,7 @@ Using the `app:install` Artisan command you can install the `self-update` compon
 php <your-app-name> app:install self-update
 ```
 
-This component will add an Artisan `self-update` command to every built application. This command
+This component will add an Artisan `self-update` command to your built application. This command
 will try to download the latest version from GitHub, if available.
 
 <a name="custom-update-strategies"></a>
