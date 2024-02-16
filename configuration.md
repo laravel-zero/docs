@@ -41,3 +41,30 @@ default service provider to allow the use of a custom provider.
 To disable the default service provider for a component, set the `useDefaultProvider` value
 to `false` in the configuration file. You can then add your custom `ServiceProvider` class
 to the `app.providers` configuration array.
+
+### Disabling Developer Commands in PHAR Build
+
+To remove the developer centric commands from the application when being used in PHAR you can modify `config/commands.php`
+
+```php
+ 'remove' => Phar::running() ? [
+        Illuminate\Database\Console\Migrations\FreshCommand::class,
+        Illuminate\Database\Console\Migrations\InstallCommand::class,
+        Illuminate\Database\Console\Migrations\MigrateCommand::class,
+        Illuminate\Database\Console\Migrations\RefreshCommand::class,
+        Illuminate\Database\Console\Migrations\ResetCommand::class,
+        Illuminate\Database\Console\Migrations\RollbackCommand::class,
+        Illuminate\Database\Console\Migrations\StatusCommand::class,
+        Illuminate\Database\Console\Migrations\MigrateMakeCommand::class,
+        Illuminate\Database\Console\Seeds\SeedCommand::class,
+        Illuminate\Database\Console\WipeCommand::class,
+        Illuminate\Database\Console\Factories\FactoryMakeCommand::class,
+        Illuminate\Foundation\Console\ModelMakeCommand::class,
+        Illuminate\Database\Console\Seeds\SeederMakeCommand::class,
+        LaravelZero\Framework\Commands\MakeCommand::class,
+        LaravelZero\Framework\Commands\RenameCommand::class,
+        LaravelZero\Framework\Commands\StubPublishCommand::class,
+        LaravelZero\Framework\Commands\BuildCommand::class,
+        LaravelZero\Framework\Commands\InstallCommand::class,
+    ] : [],
+```
