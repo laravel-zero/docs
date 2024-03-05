@@ -7,7 +7,7 @@ description: Create a new Laravel Zero project
 
 > **Requires:**
 >- [PHP 8.1+](https://php.net/releases)
->- [`sodium` PHP extension](https://php.net/manual/book.sodium.php) (required by [Box](https://github.com/box-project/box)) - if you are bundling to a Phar
+>- [**`sodium`** PHP extension](https://php.net/manual/book.sodium.php) (required by [Box](https://github.com/box-project/box)) - if you are bundling to a Phar
 
 Laravel Zero utilizes [Composer 2](https://getcomposer.org) to manage its dependencies. So, before using Laravel Zero, make sure you have Composer installed on your machine.
 
