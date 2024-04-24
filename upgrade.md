@@ -15,8 +15,8 @@ description: Laravel Zero Upgrade Guide
 - [Upgrading To 5.7 From 5.6](#upgrade-5.7.0)
 - [Upgrading To 5.6 From 4.0](#upgrade-5.6.0)
 
-<a name="upgrade-10.0.0"></a>
-## Upgrading to 10.0 from 9.x
+<a name="upgrade-11.0.0"></a>
+## Upgrading to 11.0 from 10.x
 
 ### Estimated upgrade time: 5-10 minutes
 
