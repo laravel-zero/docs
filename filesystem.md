@@ -16,7 +16,7 @@ Laravel Zero ships with the [Filesystem](https://laravel.com/docs/filesystem) co
 ### Using the Storage facade
 
 ```php
-use Storage;
+use Illuminate\Support\Facades\Storage;
 
 Storage::put("reminders.txt", "Task 1");
 ```

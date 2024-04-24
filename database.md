@@ -16,7 +16,7 @@ that works like a breeze in the Laravel Zero environment too.
 Usage:
 
 ```php
-use DB;
+use Illuminate\Support\Facades\DB;
 
 DB::table('users')->insert(
     ['email' => 'enunomaduro@gmail.com']

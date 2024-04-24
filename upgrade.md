@@ -5,6 +5,7 @@ description: Laravel Zero Upgrade Guide
 
 # Upgrade Guide
 
+- [Upgrading To 11.0 From 10.x](#upgrade-11.0.0)
 - [Upgrading To 10.0 From 9.x](#upgrade-10.0.0)
 - [Upgrading To 9.0 From 8.x](#upgrade-9.0.0)
 - [Upgrading To 8.0 From 7.x](#upgrade-8.0.0)
@@ -13,6 +14,25 @@ description: Laravel Zero Upgrade Guide
 - [Upgrading To 5.8 From 5.7](#upgrade-5.8.0)
 - [Upgrading To 5.7 From 5.6](#upgrade-5.7.0)
 - [Upgrading To 5.6 From 4.0](#upgrade-5.6.0)
+
+<a name="upgrade-10.0.0"></a>
+## Upgrading to 10.0 from 9.x
+
+### Estimated upgrade time: 5-10 minutes
+
+> We attempt to document every possible breaking change. Since some of these breaking changes are in obscure parts of the framework only a portion of these changes may actually affect your application.
+
+### PHP 8.2 required
+
+The new minimum PHP version is now 8.2.
+
+### Updating dependencies
+
+Update your `laravel-zero/framework` dependency to `^11.0` in your `composer.json` file.
+
+If you are using any components (Database, Queue, etc.) that use Illuminate dependencies, these will need to be updated to `^11.5`.
+
+Also, if you are using `nunomaduro/termwind`, you will need to update to `^2.0`.
 
 <a name="upgrade-10.0.0"></a>
 ## Upgrading to 10.0 from 9.x

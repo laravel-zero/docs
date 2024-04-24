@@ -7,7 +7,6 @@
     - [Service Providers](/docs/service-providers)
     - [Configuration](/docs/configuration)
     - [Testing](/docs/testing)
-    - [Exception handler](/docs/exception-handler)
 
 - ## Add-ons
     - [Database](/docs/database)
@@ -15,7 +14,6 @@
     - [Filesystem](/docs/filesystem)
     - [Run tasks](/docs/run-tasks)
     - [Task Scheduling](/docs/task-scheduling)
-    - [Create a logo](/docs/create-a-logo)
     - [Build interactive menus](/docs/build-interactive-menus)
     - [Send desktop notifications](/docs/send-desktop-notifications)
     - [Web Browser Automation](/docs/web-browser-automation)
