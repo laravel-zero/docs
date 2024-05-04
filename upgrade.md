@@ -34,6 +34,10 @@ If you are using any components (Database, Queue, etc.) that use Illuminate depe
 
 Also, if you are using `nunomaduro/termwind`, you will need to update to `^2.0`.
 
+#### If you are using the Logo component
+
+The Logo component has been dropped. Remove `config/logo.php`.
+
 <a name="upgrade-10.0.0"></a>
 ## Upgrading to 10.0 from 9.x
 
