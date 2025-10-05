@@ -1,9 +1,9 @@
 ---
-title: Build a standalone application
+title: Distribute as a PHAR archive
 description: Build a standalone PHAR archive to ease the deployment or distribution of your project
 ---
 
-# Build a standalone application
+# Distribute as a PHAR archive
 
 Your Laravel Zero project, by default, allows you to build a standalone PHAR archive to ease the deployment or distribution of your project.
 ```bash
