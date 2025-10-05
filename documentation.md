@@ -18,11 +18,14 @@
     - [Send desktop notifications](/docs/send-desktop-notifications)
     - [Web Browser Automation](/docs/web-browser-automation)
     - [Environment Variables](/docs/environment-variables)
-    - [Build a standalone application](/docs/build-a-standalone-application)
     - [Tinker REPL](/docs/tinker-repl)
     - [HTTP Client](/docs/http-client)
     - [View](/docs/view)
     - [Cache](/docs/cache)
+
+- ## Distribute your app
+    - [As a PHAR archive](/docs/distribute-as-a-phar-archive)
+    - [As a single executable binary](/docs/distribute-as-a-single-executable-binary)
 
 - ## More
     - [Upgrade](/docs/upgrade)
