@@ -7,7 +7,7 @@ description: About Laravel Zero and it's documentation
 
 Laravel Zero was created by, and is maintained by **[Nuno Maduro](https://github.com/nunomaduro)**, and is
 a micro-framework that provides an elegant starting point for your console application. It is an **unofficial**
-and customized version of Laravel optimized for building command-line applications.
+and customized version of Laravel, optimized for building command-line applications.
 
 It’s built on top of the latest release of Laravel, the most popular PHP web framework. Using Laravel Zero, you are free to take
 advantage of Laravel's core great features, and at the same time leverage minimal application structure and a lightweight experience.
