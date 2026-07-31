@@ -5,6 +5,7 @@ description: Laravel Zero Upgrade Guide
 
 # Upgrade Guide
 
+- [Upgrading To 13.0 From 12.x](#upgrade-13.0.0)
 - [Upgrading To 12.0 From 11.x](#upgrade-12.0.0)
 - [Upgrading To 11.0 From 10.x](#upgrade-11.0.0)
 - [Upgrading To 10.0 From 9.x](#upgrade-10.0.0)
@@ -15,6 +16,19 @@ description: Laravel Zero Upgrade Guide
 - [Upgrading To 5.8 From 5.7](#upgrade-5.8.0)
 - [Upgrading To 5.7 From 5.6](#upgrade-5.7.0)
 - [Upgrading To 5.6 From 4.0](#upgrade-5.6.0)
+
+<a name="upgrade-13.0.0"></a>
+## Upgrading to 13.0 from 12.x
+
+### Estimated upgrade time: 5-10 minutes
+
+> We attempt to document every possible breaking change. Since some of these breaking changes are in obscure parts of the framework only a portion of these changes may actually affect your application.
+
+### Updating dependencies
+
+Update your `laravel-zero/framework` dependency to `^13.0` in your `composer.json` file.
+
+If you are using any components (Database, Queue, etc.) that use Illuminate dependencies, these will need to be updated to `^13.23`.
 
 <a name="upgrade-12.0.0"></a>
 ## Upgrading to 12.0 from 11.x
