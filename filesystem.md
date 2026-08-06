@@ -1,71 +1,94 @@
 ---
 title: Filesystem
-description: Filesystem interaction through Storage of File facade, just like Laravel.
+description: Interacting with the local filesystem and cloud storage
 ---
 
 # Filesystem
 
-If you want to move files in your system, or to different providers like AWS S3 and Dropbox. By default,
-Laravel Zero ships with the [Filesystem](https://laravel.com/docs/filesystem) component of Laravel.
+- [Introduction](#introduction)
+- [The Storage Facade](#the-storage-facade)
+- [The File Facade](#the-file-facade)
+- [Writing Files From a Build](#writing-files-from-a-build)
+    - [Using the Storage Facade](#using-the-storage-facade)
+    - [Using the File Facade](#using-the-file-facade)
 
-**Note:** By default the root directory is `your-app-name/storage`.
+<a name="introduction"></a>
+## Introduction
 
-> Writing files after you [build](/docs/build-a-standalone-application) your application is different, check [Writing files in production](#production)
+Laravel Zero ships with Laravel's [filesystem](https://laravel.com/docs/filesystem) component, powered by the [Flysystem](https://github.com/thephpleague/flysystem) PHP package. It provides simple drivers for working with local filesystems, SFTP, and Amazon S3 — there is no component to install.
 
-<a name="using-the-storage-facade"></a>
-### Using the Storage facade
+By default, Laravel Zero configures a single `local` disk rooted at your application's `storage/app` directory.
+
+<a name="the-storage-facade"></a>
+## The Storage Facade
+
+The `Storage` facade may be used to interact with any of your configured disks:
 
 ```php
 use Illuminate\Support\Facades\Storage;
 
-Storage::put("reminders.txt", "Task 1");
+Storage::put('reminders.txt', 'Task 1');
+
+$contents = Storage::get('reminders.txt');
 ```
 
-<a name="using-the-file-facade"></a>
-### Using the File facade
+If you would like to configure additional disks — for example, an Amazon S3 disk — create a `config/filesystems.php` configuration file in your application. Its structure is identical to the one used by Laravel.
+
+<a name="the-file-facade"></a>
+## The File Facade
+
+When you need to work with absolute paths on the machine running your application, rather than with a configured disk, the `File` facade is often a better fit:
 
 ```php
 use Illuminate\Support\Facades\File;
 
-File::put("/path/to/file/reminders.txt", "Task 1");
+File::put('/path/to/reminders.txt', 'Task 1');
+
+$contents = File::get('/path/to/reminders.txt');
 ```
 
-<a name="production"></a>
-### Writing files in production
+<a name="writing-files-from-a-build"></a>
+## Writing Files From a Build
 
-When using the filesystem be aware that when you build the application with `app:build` you create a `.phar` file. You can not add, update or delete files inside the `.phar` file.
+Once your application has been compiled into a [PHAR archive](/docs/distribute-as-a-phar-archive), you can no longer add, update, or delete files inside of it. Since the default `local` disk is rooted at `storage/app` — a path within the archive — writing to it will fail.
 
-> We are currently looking into streamlining the filesystem access. The code below is an example of how you can currently write files from the built application to the current working directory.
+Instead, you should write to a location on the user's machine, such as the current working directory or a dedicated directory inside their home directory.
 
-<a name="with-the-storage-facade"></a>
-#### With the Storage facade
+<a name="using-the-storage-facade"></a>
+### Using the Storage Facade
 
-If you want to use the `Storage` facade you will need to use a config file, similar to how Laravel does it.
-
-- Create a file `filesystems.php` in your `config/` directory.
-- Copy and paste the following contents. This code will replace the default `your-app-name/storage/app` folder with the current working directory.
+To keep using the `Storage` facade, create a `config/filesystems.php` configuration file that roots the `local` disk outside of your build:
 
 ```php
 <?php
 
 return [
     'default' => 'local',
+
     'disks' => [
         'local' => [
             'driver' => 'local',
-            'root' => getcwd(),
+            'root' => \Phar::running()
+                ? getcwd()
+                : storage_path('app'),
         ],
     ],
 ];
 ```
-    
-- Use the `Storage` facade like you would before.
 
-<a name="with-the-file-facade"></a>
-#### With the File facade
+The `Storage` facade may then be used exactly as before:
 
-Using the `File` facade is just the same as normal
+```php
+Storage::put('reminders.txt', 'Task 1');
+```
 
-```php 
-File::put(getcwd() . "/reminders.txt", "Task 1");
+> **Note:** The current working directory is only one option. The system temporary directory, via `sys_get_temp_dir()`, or a "dot" directory inside the user's home directory are both good choices as well.
+
+<a name="using-the-file-facade"></a>
+### Using the File Facade
+
+The `File` facade already works with absolute paths, so it requires no configuration. You only need to build the path yourself:
+
+```php
+File::put(getcwd().'/reminders.txt', 'Task 1');
 ```

@@ -1,56 +1,87 @@
 ---
 title: View
-description: View Support for Laravel Zero
+description: Rendering Blade templates from your console application
 ---
 
 # View
 
-Using the `app:install` Artisan command you can install the `view` component:
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Rendering Views](#rendering-views)
+- [Using Views in a Build](#using-views-in-a-build)
 
-```bash
-php <your-app-name> app:install view
+<a name="introduction"></a>
+## Introduction
+
+The `view` component allows you to render templates using the [Blade](https://laravel.com/docs/blade) templating engine. This is useful whenever your console application needs to produce something more structured than terminal output — an HTML report, a generated configuration file, or the body of an email.
+
+> **Note:** If all you want is beautifully styled terminal output, you don't need this component. Every Laravel Zero application already includes [Termwind](/docs/commands#styling-output-with-termwind).
+
+<a name="installation"></a>
+## Installation
+
+You may install the `view` component using the `app:install` Artisan command:
+
+```shell
+php application app:install view
 ```
 
-<a name="usage"></a>
-#### Usage
+The installer will require `illuminate/view`, create the `resources/views` directory where your templates live, create a `config/view.php` configuration file, and prepare `storage/framework/views` for compiled templates.
 
-The `View` component allows to render HTML views and take advantage of the blade template engine.
+<a name="rendering-views"></a>
+## Rendering Views
 
-As usual, the usage is similar to Laravel:
+Views may be rendered using the `View` facade or the global `view` helper. Both accept the name of the view and an array of data that should be made available to it:
+
 ```php
 use Illuminate\Support\Facades\View;
 
-View::make('view.name', ['foo' => 'bar']);
-view('view-name', ['foo' => 'bar']);
+$html = View::make('report', ['movies' => $movies])->render();
+
+$html = view('report', ['movies' => $movies])->render();
 ```
 
-<a name="views-in-production"></a>
-## Using views in production
+Assuming the view above lives at `resources/views/report.blade.php`:
 
- In order to use Blade views in production, a `view.php` file must be added in the `config` directory to specify the path where the compiled views should be stored.
+```php
+<ul>
+    @foreach ($movies as $movie)
+        <li>{{ $movie->title }}</li>
+    @endforeach
+</ul>
+```
 
- For example:
- ```php
- <?php
+Consult the [Blade documentation](https://laravel.com/docs/blade) on the Laravel website for the full templating syntax.
 
- return [
-     'paths' => [
-         resource_path('views'),
-     ],
+<a name="using-views-in-a-build"></a>
+## Using Views in a Build
+
+Blade compiles your templates to plain PHP files and writes them to the path defined by the `compiled` option of your `config/view.php` configuration file. By default, that path is `storage/framework/views`, which lives inside your [PHAR archive](/docs/distribute-as-a-phar-archive) and is therefore read-only.
+
+To handle this, point the `compiled` option at a writable location whenever the application is running from within an archive:
+
+```php
+<?php
+
+return [
+    'paths' => [
+        resource_path('views'),
+    ],
+
     'compiled' => \Phar::running()
-        ? getcwd()
+        ? sys_get_temp_dir()
         : env('VIEW_COMPILED_PATH', realpath(storage_path('framework/views'))),
- ];
- ```
- 
- An alternative to using the current working directory is to use the system temporary directory with `sys_get_temp_dir()`, but any path can be specified, such as a custom location in the user's home directory.
+];
+```
 
-The `resources` directory must also be added to the `box.json` file to include it in the compiled PHAR file:
- ```json
- "directories": [
-     // ...
-     "resources"
- ],
- ```
+Your templates also need to be part of the build itself. Add the `resources` directory to the `directories` section of your `box.json` file:
 
-Full details on using the View component is available on the [main Laravel documentation](https://laravel.com/docs/views).
+```json
+"directories": [
+    "app",
+    "bootstrap",
+    "config",
+    "resources",
+    "vendor"
+],
+```
