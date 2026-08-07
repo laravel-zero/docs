@@ -1,32 +1,37 @@
 ---
-title: Build interactive menus
-description: Build interactive menus
+title: Build Interactive Menus
+description: Build beautiful interactive menus for your console application
 ---
 
-# Build interactive menus
+# Build Interactive Menus
 
-Using the `app:install` Artisan command you can install the `menu` component:
-```bash
-php <your-app-name> app:install menu
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Creating Menus](#creating-menus)
+- [Customizing the Appearance](#customizing-the-appearance)
+
+<a name="introduction"></a>
+## Introduction
+
+Interactive menus are a powerful way to guide the people using your application. Instead of typing the number that corresponds to their choice, they simply use the arrow keys on their keyboard to make a selection.
+
+The `menu` component adds a `menu` method to your commands, allowing you to build beautiful, navigable menus in a few lines of code.
+
+> **Warning:** This component requires the `ext-posix` PHP extension, which is not available on Windows. Installing it will prevent your application from running on Windows systems. If you need cross-platform support, use the `select` function provided by [Laravel Prompts](https://laravel.com/docs/prompts) instead.
+
+<a name="installation"></a>
+## Installation
+
+You may install the `menu` component using the `app:install` Artisan command:
+
+```shell
+php application app:install menu
 ```
 
-> **Note:** This component only works on systems with the PHP extension
-`ext-posix` enabled. **This will prevent your application from working on
-Windows as `ext-posix` is not available on Windows systems.**
+<a name="creating-menus"></a>
+## Creating Menus
 
-Interactive menus in console applications are very powerful. They
-provide a simple interface that requires little interaction. With Laravel
-Zero, you can use the `menu` method to create beautiful menus:
-
-Using menus in the console may sound silly, but is fantastic! Your users
-don't need to type the number corresponding to their choice any more. They
-can just use the arrows on their keyboard to make their selection!
-
-<a name="example"></a>
-#### Example
-
-Create your first menu by copy pasting the code below in your commands
-`handle` function.
+The `menu` method accepts a title and an array of options. Calling `open` displays the menu and returns the key of the option the user selected:
 
 ```php
 $option = $this->menu('Pizza menu', [
@@ -38,33 +43,33 @@ $option = $this->menu('Pizza menu', [
 $this->info("You have chosen the option number #$option");
 ```
 
-When you now run your command your output should be similar to this
-image:
+When you run the command, the output will look similar to this:
 
 <img src="https://raw.githubusercontent.com/nunomaduro/laravel-console-menu/master/docs/example.png" class="md:w-4/5 md:mx-auto">
 
-<a name="changing-the-appearance"></a>
-#### Changing the appearance
+<a name="customizing-the-appearance"></a>
+## Customizing the Appearance
 
-The appearance of the menu can be set with a fluent API. What if we like
-a green font on a black background? The code below shows you how to do just that and some extras.
+The appearance of the menu may be adjusted using a fluent API. What if you like a green font on a black background? The code below shows you how to do just that, along with a few extras:
 
 ```php
-$this->menu($title, $options)
+$option = $this->menu($title, $options)
     ->setForegroundColour('green')
     ->setBackgroundColour('black')
     ->setWidth(200)
     ->setPadding(10)
     ->setMargin(5)
-    ->setExitButtonText("Abort")
-    // remove exit button with
-    // ->disableDefaultItems()
+    ->setExitButtonText('Abort')
     ->setTitleSeparator('*-')
     ->addLineBreak('<3', 2)
     ->addStaticItem('AREA 2')
     ->open();
 ```
 
-> Behind the scenes, the `menu` method uses the
-[`nunomaduro/laravel-console-menu`](https://github.com/nunomaduro/laravel-console-menu)
-package. You can find more details on how to use the menu method there.
+If you would like to remove the exit button entirely, you may use the `disableDefaultItems` method:
+
+```php
+$this->menu($title, $options)->disableDefaultItems()->open();
+```
+
+> **Note:** Behind the scenes, the `menu` method uses the [`nunomaduro/laravel-console-menu`](https://github.com/nunomaduro/laravel-console-menu) package. You will find further details on the available options there.

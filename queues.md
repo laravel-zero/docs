@@ -15,7 +15,7 @@ description: Defer time consuming tasks with Laravel's unified queue API
 <a name="introduction"></a>
 ## Introduction
 
-Console applications often need to do things that take a while — importing a large file, calling a slow API, or generating a report. The `queues` component brings Laravel's [queue system](https://laravel.com/docs/queues) to your application, giving you a unified API across a variety of queue backends such as SQS, Redis, and your own database.
+Console applications often need to do things that take a while — importing a large file, calling a slow API, or generating a report. The `queue` component brings Laravel's [queue system](https://laravel.com/docs/queues) to your application, giving you a unified API across a variety of queue backends such as SQS, Redis, and your own database.
 
 <a name="installation"></a>
 ## Installation

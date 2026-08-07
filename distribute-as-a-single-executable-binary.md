@@ -1,67 +1,80 @@
 ---
-title: Distribute as a single executable binary
-description: Build a standalone executable binary to distribute your project without requiring PHP or dependencies on target systems
+title: Distribute as a Single Executable Binary
+description: Build a self-contained binary that runs without PHP installed on the target system
 ---
 
-# Distribute as a single executable binary
+# Distribute as a Single Executable Binary
 
-Your Laravel Zero project can be bundled into a standalone executable binary that runs on target systems without requiring PHP, Composer, or any other dependencies to be pre-installed.
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Building the Binary](#building-the-binary)
+- [Running the Binary](#running-the-binary)
+- [Considerations](#considerations)
 
-We use [PHPacker](https://phpacker.dev) to create self-contained binaries from your PHAR archives.
+<a name="introduction"></a>
+## Introduction
+
+A [PHAR archive](/docs/distribute-as-a-phar-archive) still requires PHP to be installed on the machine that runs it. When you are distributing your application to people who may not have PHP — or may have the wrong version — you may instead bundle your application into a standalone executable binary with the PHP runtime embedded in it.
+
+Laravel Zero uses [PHPacker](https://phpacker.dev) to create these self-contained binaries from your PHAR archives.
 
 <a name="installation"></a>
 ## Installation
 
-First, add PHPacker as a development dependency:
-```bash
+First, add PHPacker to your project as a development dependency:
+
+```shell
 composer require phpacker/phpacker --dev
 ```
 
-<a name="building"></a>
-## Building
+<a name="building-the-binary"></a>
+## Building the Binary
 
-Before creating the binary, you need to build your PHAR archive. The build name must have the `.phar` extension:
-```bash
-php <your-app-name> app:build <your-build-name>.phar
+PHPacker works from a PHAR archive, so you should build one first. The build name must have the `.phar` extension:
+
+```shell
+php application app:build movie-cli.phar
 ```
 
-Once your PHAR archive is ready in the `builds` folder, create binaries for all supported platforms:
-```bash
-./vendor/bin/phpacker build --src=./builds/<your-build-name>.phar --php=8.4 all
+Once the archive is ready in your `builds` directory, create binaries for every supported platform:
+
+```shell
+./vendor/bin/phpacker build --src=./builds/movie-cli.phar --php=8.4 all
 ```
 
 This command builds binaries with PHP 8.4 embedded for:
-- **macOS**: arm64 and x64 architectures
-- **Linux**: arm64 and x64 architectures
-- **Windows**: x64 architecture
 
-The binaries will be created in the `./builds/build` folder, organized by platform.
+- **macOS** — `arm64` and `x64`
+- **Linux** — `arm64` and `x64`
+- **Windows** — `x64`
 
-For platform-specific builds or additional configuration options, please check the [PHPacker documentation](https://phpacker.dev/docs/getting-started/).
+The resulting binaries are placed in the `./builds/build` directory, organized by platform. For platform-specific builds and additional configuration options, consult the [PHPacker documentation](https://phpacker.dev/docs/getting-started/).
 
-<a name="running"></a>
-## Running
+<a name="running-the-binary"></a>
+## Running the Binary
 
-You can execute the binary directly:
-```bash
+The binary may be executed directly, with no other dependencies:
+
+```shell
 ./builds/build/mac/mac-arm
 ```
 
-or on Linux:
-```bash
+Or, on Linux:
+
+```shell
 ./builds/build/linux/linux-x64
 ```
 
-or on Windows:
-```bash
+Or, on Windows:
+
+```shell
 C:\application\path> builds\build\windows\windows-x64.exe
 ```
-
-The binary is completely self-contained and can be distributed as a single file without any dependencies.
 
 <a name="considerations"></a>
 ## Considerations
 
-- Binary files are larger than PHAR archives due to the embedded PHP runtime
-- Build process requires network access to download PHP binaries
-- Some PHP extensions may not be available in the embedded runtime
+- Binaries are considerably larger than PHAR archives, since they embed the PHP runtime.
+- Building requires network access, as the PHP binaries are downloaded during the build.
+- Some PHP extensions may not be available in the embedded runtime. If your application depends on one, verify it is present before distributing.
+- Everything that is true of a PHAR build is also true here: the environment is `production`, and the bundled filesystem is read-only. See [what changes in a build](/docs/distribute-as-a-phar-archive#what-changes-in-a-build).
